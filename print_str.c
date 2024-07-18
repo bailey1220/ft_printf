@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_int.c                                        :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/18 17:55:07 by bachai            #+#    #+#             */
-/*   Updated: 2024/07/18 18:13:34 by bachai           ###   ########.fr       */
+/*   Created: 2024/07/18 18:21:00 by bachai            #+#    #+#             */
+/*   Updated: 2024/07/18 18:28:56 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_int(int n)
+int	print_str(char *str)
 {
-	int nb;
 	unsigned int i;
 
-	nb = n;
-	i = 1;
-	if (nb < 0 && nb != -2147483648)
+	i = 0;
+	if (!str)
+		str = "(null)";
+	while (str)
 	{
-		nb = -n;
+		write (1, &str[i], 1);
 		i++;
 	}
-	if (nb > 9)
-	{
-		nb = nb / 10;
-		i++;
-	}
-	ft_putnbr(nb);
+	return (i);
 }
