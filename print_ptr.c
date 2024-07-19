@@ -6,8 +6,17 @@
 /*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 17:52:02 by bachai            #+#    #+#             */
-/*   Updated: 2024/07/18 17:52:44 by bachai           ###   ########.fr       */
+/*   Updated: 2024/07/19 15:21:23 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+void 	print_hex_digit(unsigned char digit)
+{
+	char c;
+
+	if (digit < 10)
+		c = digit + '0';
+	else
+		c = digit - 10 + '0';
+}
