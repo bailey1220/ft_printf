@@ -6,7 +6,7 @@
 /*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 18:21:00 by bachai            #+#    #+#             */
-/*   Updated: 2024/07/18 18:28:56 by bachai           ###   ########.fr       */
+/*   Updated: 2024/07/21 17:45:34 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	print_str(char *str)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	if (!str)

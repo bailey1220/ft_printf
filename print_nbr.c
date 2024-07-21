@@ -1,54 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_unsigned.c                                   :+:      :+:    :+:   */
+/*   print_nbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/19 11:18:15 by bachai            #+#    #+#             */
-/*   Updated: 2024/07/19 13:25:29 by bachai           ###   ########.fr       */
+/*   Created: 2024/06/23 13:59:27 by bachai            #+#    #+#             */
+/*   Updated: 2024/07/21 17:45:19 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int 	num_length(unsigned int num)
+void	ft_putnbr(int num)
 {
-	int length;
+	char	digit;
 
-	length = 0;
-	if (num == 0)
-		return (1);
-	if (num > 9)
+	if (n == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (n < 0)
 	{
-		num =/ 10;
-		length++;
-	}
-	return (length);
-}
-
-int	print_unsigned(unsigned int num)
-{
-	char array;
-	int length;
-	int i;
-
-	length = num_length(num);
-	i = length - 1;
-	if (num == 0)
-	{
-		array[0] = '0';
-		array[1] = '/0';
+		write(1, "-", 1);
+		ft_putnbr (-n);
 	}
 	else
 	{
-		while (num > 0)
+		if (n > 9)
 		{
-			array[i] = num % 10 + '0';
-			num /= 10;
-			i--;
+			ft_putnbr (n / 10);
+			ft_putnbr (n % 10);
 		}
-		array[i] = '/0';
+		else
+		{
+			digit = n + '0';
+			write(1, &digit, 1);
+		}
 	}
-	write (1, &array[i], length);
+}
+
+void	print_unsigned(unsigned int num)
+{
+	char	digit;
+
+	if (n >= 10)
+	{
+		put_nbr(n / 10, len);
+		put_nbr(n % 10, len);
+	}
+	else
+	{
+		digit = n + '0';
+		write (1, &digit, 1);
+	}
 }
