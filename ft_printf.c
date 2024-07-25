@@ -6,17 +6,16 @@
 /*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 15:46:52 by bachai            #+#    #+#             */
-/*   Updated: 2024/07/25 15:14:21 by bachai           ###   ########.fr       */
+/*   Updated: 2024/07/25 15:45:17 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include 
 
 int	check_type(const char *input, ...)
 {
 	int i;
-u
+
 	i = 0;
 	if (*input == 'c')
 		i += print_char((int)args);
@@ -43,25 +42,21 @@ int	ft_printf(const char *input, ...)
 	va_list	args;
 
 	i = 0;
-	va_start(args, format);cspdiuxX%
+	va_start(args, format);
 	while (*input != '\0')
 	{
 		if (*input == '%')
 		{
-			ft_strchr("cspdiuxX", input);
-			i =+ check_type(input, va_arg(args));
+			input++;
+			if (ft_strchr("cspdiuxX", input));
+				i =+ check_type(input, va_arg(args));
+			else if (*input == '%')
+				i += print_char('%');
 		}
-		else if (*input == '%')
-			print_char('%');
-		
-
+		else 
+			i = i + print_char(*input);
+		input++;
 	}
-			
-			
-
-
-
-
-
-
+	va_end(args);
+	return (i);
 }
