@@ -6,7 +6,7 @@
 /*   By: bachai <bachai@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 15:46:52 by bachai            #+#    #+#             */
-/*   Updated: 2024/07/25 15:45:17 by bachai           ###   ########.fr       */
+/*   Updated: 2024/07/25 16:30:00 by bachai           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_printf(const char *input, ...)
 		{
 			input++;
 			if (ft_strchr("cspdiuxX", input));
-				i =+ check_type(input, va_arg(args));
+				i =+ check_type(input, va_arg(args, void *));
 			else if (*input == '%')
 				i += print_char('%');
 		}
@@ -59,4 +59,12 @@ int	ft_printf(const char *input, ...)
 	}
 	va_end(args);
 	return (i);
+}
+
+#include <stdio.h>
+
+int main()
+{
+	ft_printf("hello my name is %s.");
+	printf("hello my name is %s.");
 }
